@@ -16,8 +16,8 @@ campus-hotspots 주소
 
 ### 출처
 - 새로 사용한 이미지·웹폰트의 출처(사용한 경우):
-- - Jua, Google Fonts
+- Jua, Google Fonts
   https://fonts.google.com/specimen/Jua
 - Gowun Dodum, Google Fonts
   https://fonts.google.com/specimen/Gowun+Dodum
-이외에 글꼴은 css 자체 글꼴 사용
+- 이외에 글꼴은 css 자체 글꼴 사용
