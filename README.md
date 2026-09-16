@@ -5,9 +5,9 @@ campus-hotspots 주소
 - GitHub Pages URL: https://github.com/mingi-hwang/campus-hotspots
 ### 페이지별 스타일
 - 프론트페이지: 첫페이지의 친근함을 주기위해 분홍색을 사용했다 / body에 page-home class를 적용했다. css는 분홍색 계열을 사용하고 Trebuchet MS 글꼴을 사용했다.
-- 식당: 시원한 느낌을 주기위해 파란색을 사용했다. / body에 page-foodcourt class를 적용했다. css는 파란색 계열을 사용하고 Arial Rounded MT Bold 글꼴을 사용했다.
+- 식당: 시원한 느낌을 주기위해 파란색을 사용했다. / body에 page-foodcourt class를 적용했다. css는 파란색 계열을 사용하고 Jua 글꼴을 사용했다.
 - 카페: 햇살같이 따뜻한 느낌을 주고 싶어 주황색을 사용했다. / body에 page-cafe class를 적용했다. css는 주황색 계열을 사용하고 Georgia 글꼴을 사용했다.
-- 편의점: 풀처럼 자연의 향을 추구하기 위해 초록색을 사용했다. / body에 page-shelter class를 적용했다. css는 초록색 계열을 사용하고 Cosolas 글꼴을 사용했다.
+- 편의점: 풀처럼 자연의 향을 추구하기 위해 초록색을 사용했다. / body에 page-shelter class를 적용했다. css는 초록색 계열을 사용하고 Gowun Dodum 글꼴을 사용했다.
 
 ### 모바일 스타일
 - 적용한 @media 조건: @media (max-width: 600px)
@@ -15,4 +15,9 @@ campus-hotspots 주소
 - 휴대전화에서 네 페이지를 확인한 결과: 가시성이 잘보이게 적용이 되었고 여백도 적절하게 들어가서 글자들의 배치가 괜찮게 보였다.
 
 ### 출처
-- 새로 사용한 이미지·웹폰트의 출처(사용한 경우): 글꼴은 css자체 글꼴 사용
+- 새로 사용한 이미지·웹폰트의 출처(사용한 경우):
+- - Jua, Google Fonts
+  https://fonts.google.com/specimen/Jua
+- Gowun Dodum, Google Fonts
+  https://fonts.google.com/specimen/Gowun+Dodum
+이외에 글꼴은 css 자체 글꼴 사용
