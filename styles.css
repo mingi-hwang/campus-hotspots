@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -103,7 +105,7 @@ a:focus-visible {
   --accent: #2879c7;
   --accent-soft: #8fc1ec;
   --panel-background: #f8fcff;
-  font-family: "Arial Rounded MT Bold", "Malgun Gothic", sans-serif;
+  font-family: "Jua", "Malgun Gothic", sans-serif;
 }
 .page-shelter {
   --page-background: #edf8ee;
@@ -111,7 +113,7 @@ a:focus-visible {
   --accent: #39804c;
   --accent-soft: #9bcba5;
   --panel-background: #fbfffb;
-  font-family: Consolas, "Malgun Gothic", monospace;
+  font-family: "Gowun Dodum", "Malgun Gothic", sans-serif;
 }
 
 /* 모바일에서 네 페이지 모두 적용 */
