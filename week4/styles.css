@@ -108,7 +108,7 @@ body > p {
 	display: none !important;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
 	body {
 		padding: 20px 14px;
 	}
@@ -122,7 +122,7 @@ body > p {
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 	body {
 		font-size: 16px;
 	}
