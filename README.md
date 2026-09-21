@@ -21,3 +21,33 @@ campus-hotspots 주소
 - Gowun Dodum, Google Fonts
   https://fonts.google.com/specimen/Gowun+Dodum
 - 이외에 글꼴은 css 자체 글꼴 사용
+
+## 4주차: JavaScript 실습
+
+- 장소 탐험 페이지: https://mingi-hwang.github.io/campus-hotspots/week4/
+- 통계 페이지: https://mingi-hwang.github.io/campus-hotspots/week4/statistics.html
+- 게임 페이지: https://mingi-hwang.github.io/campus-hotspots/week4/game.html
+
+### 실습 1
+- 내가 수정한 부분:
+- 버튼 클릭 → 내용 변경 → 지도 변경의 흐름:
+- 휴대전화에서 확인한 결과:
+
+### 실습 2
+- 데이터 출처 URL / 내려받은 날짜:
+- 데이터 선택 이유 / 대상·기간·단위:
+- 그래프 1: 질문 / 사용한 열 / 그래프 형식과 선택 이유 / 해석:
+- 그래프 2: 질문 / 사용한 열 / 그래프 형식과 선택 이유 / 해석:
+- 필터링·집계·결측치 처리:
+- 두 탭 전환 방식:
+- 휴대전화에서 두 탭을 확인한 결과:
+- 빈 데이터·잘못된 CSV를 넣었을 때 결과:
+- Copilot 활용: 도움받은 작업 / 대표 질문 / 직접 수정·검증한 내용:
+
+### 실습 3
+- 게임 이름 / 아이디어 / 조작과 규칙:
+- Copilot에게 보낸 첫 질문:
+- 추가 수정 요청과 개선한 점:
+- 직접 확인한 동작: 조작 / 점수 / 종료 / 재시작:
+- 휴대전화에서 확인한 결과:
+- 이미지·소리 출처와 이용 조건(사용한 경우):
