@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>짝맞추기</title>
+	<style>
+		* { box-sizing: border-box; }
+
+		:root {
+			color: #e8f4ff;
+			background: #071b38;
+			font: 16px/1.5 system-ui, sans-serif;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 24px 14px 36px;
+			background: radial-gradient(circle at 50% 0%, #164b86, #071b38 58%);
+		}
+
+		.game-page {
+			width: min(100%, 720px);
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		h1 {
+			margin: 0;
+			color: #ffffff;
+			font-size: clamp(2rem, 8vw, 3.5rem);
+			letter-spacing: 0.04em;
+		}
+
+		.intro { margin: 4px 0 18px; color: #b8d8f6; }
+
+		.hud {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 8px;
+			margin-bottom: 14px;
+		}
+
+		.stat {
+			padding: 9px 6px;
+			border: 1px solid #3975b7;
+			border-radius: 12px;
+			background: #0d2c55;
+		}
+
+		.stat strong {
+			display: block;
+			color: #7ed5ff;
+			font-size: 1.25rem;
+		}
+
+		.stat span { color: #b8d8f6; font-size: 0.85rem; }
+
+		.board-wrap {
+			position: relative;
+			width: min(100%, 640px);
+			margin: 0 auto;
+			padding: 8px;
+			border: 1px solid #3975b7;
+			border-radius: 18px;
+			background: #0b2850;
+			box-shadow: 0 18px 48px #020b1dcc;
+		}
+
+		canvas {
+			display: block;
+			width: 100%;
+			height: auto;
+			border-radius: 12px;
+			touch-action: manipulation;
+		}
+
+		.controls { margin-top: 16px; }
+
+		button {
+			min-width: 150px;
+			padding: 11px 20px;
+			border: 0;
+			border-radius: 999px;
+			color: #06204a;
+			background: #73d4ff;
+			font: inherit;
+			font-weight: 700;
+			cursor: pointer;
+			box-shadow: 0 5px 0 #3487b6;
+		}
+
+		button:hover { background: #a2e5ff; }
+		button:active { transform: translateY(3px); box-shadow: 0 2px 0 #3487b6; }
+		button:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }
+
+		#message {
+			min-height: 1.5em;
+			margin: 14px 0 0;
+			color: #d8efff;
+			font-weight: 600;
+		}
+
+		@media (max-width: 480px) {
+			body { padding: 18px 8px 28px; }
+			.hud { gap: 5px; }
+			.stat { padding: 7px 3px; }
+			.stat strong { font-size: 1.05rem; }
+			.stat span { font-size: 0.75rem; }
+		}
+	</style>
+</head>
+<body>
+	<main class="game-page">
+		<h1>짝맞추기</h1>
+		<p class="intro">카드를 눌러 같은 도형 한 쌍을 찾아보세요.</p>
+
+		<section class="hud" aria-label="게임 정보">
+			<div class="stat"><strong id="pairs">0 / 8</strong><span>찾은 짝</span></div>
+			<div class="stat"><strong id="timer">30</strong><span>남은 시간</span></div>
+			<div class="stat"><strong id="finished">-</strong><span>끝낸 시간</span></div>
+		</section>
+
+		<div class="board-wrap">
+			<canvas id="game-canvas" width="640" height="640" aria-label="4 곱하기 4 짝맞추기 게임판"></canvas>
+		</div>
+
+		<div class="controls">
+			<button id="start-button" type="button">게임 시작</button>
+		</div>
+		<p id="message" role="status">게임 시작 버튼을 눌러 시작하세요.</p>
+	</main>
+	<script src="game.js"></script>
+</body>
+</html>
