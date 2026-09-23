@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>서울교통공사 지하철 혼잡도 분석</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.2/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+</head>
+<body class="statistics-page">
+  <h1>서울교통공사 지하철 혼잡도 분석</h1>
+  <p>서울교통공사 공개 CSV에서 1호선의 시간대별·역별 지하철 혼잡도를 비교합니다.</p>
+  <div class="tabs" role="group" aria-label="그래프 선택">
+    <button type="button" data-panel="time" aria-controls="time" aria-pressed="true">시간대별 혼잡도</button>
+    <button type="button" data-panel="stations" aria-controls="stations" aria-pressed="false">역별 평균 혼잡도</button>
+  </div>
+  <section id="time" class="panel" aria-labelledby="time-title">
+    <h2 id="time-title">서울역 1호선 상선의 시간대별 혼잡도</h2>
+    <div class="chart-box"><canvas id="time-chart" role="img" aria-label="서울역 1호선 상선의 시간대별 혼잡도"></canvas></div>
+    <p><strong>의미:</strong> 평일 서울역 1호선 상선의 시간대별 혼잡도(%)를 보여줍니다.</p>
+    <p><strong>해석:</strong> 혼잡도 수치가 높을수록 해당 시간대에 열차 안이 더 붐빕니다. 이 그래프는 서울역 한 방향의 흐름만 나타내므로 전체 노선의 혼잡도로 일반화할 수 없습니다.</p>
+  </section>
+  <section id="stations" class="panel" aria-labelledby="stations-title" hidden>
+    <h2 id="stations-title">평일 1호선 역별 평균 혼잡도 상위 10곳</h2>
+    <div class="chart-box"><canvas id="stations-chart" role="img" aria-label="평일 1호선 역별 평균 혼잡도 상위 10곳"></canvas></div>
+    <p><strong>의미:</strong> 평일 1호선 상·하선의 모든 시간대 혼잡도를 평균 내어 역별로 비교합니다.</p>
+    <p><strong>해석:</strong> 역별 평균은 시간대와 방향의 차이를 하나의 값으로 요약한 수치입니다. 출퇴근 특정 시간대의 혼잡을 확인하려면 첫 번째 그래프를 함께 봐야 합니다.</p>
+  </section>
+  <p>출처: <a href="https://www.data.go.kr/data/15121324/fileData.do" target="_blank" rel="noopener">서울교통공사 지하철혼잡도정보</a></p>
+  <section class="panel highway-panel" aria-labelledby="highway-title">
+    <h2 id="highway-title">추석 연휴 날짜별 고속도로 통행량</h2>
+    <div class="chart-box"><canvas id="highway-chart" role="img" aria-label="추석 연휴 날짜별 고속도로 전체 통행량"></canvas></div>
+    <p><strong>의미:</strong> 한국도로공사 자료의 추석 연휴 날짜별 전체 통행량을 비교합니다.</p>
+    <p id="highway-analysis"><strong>해석:</strong> CSV를 불러오면 통행량이 가장 많은 날과 가장 적은 날을 계산합니다.</p>
+  </section>
+  <p>추가 출처: <strong>한국도로공사_추석연휴 특별교통소통대책 결과_20260818.csv</strong></p>
+  <p id="status" role="status"></p>
+  <script src="statistics.js" defer></script>
+</body>
+</html>

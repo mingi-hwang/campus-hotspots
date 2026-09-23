@@ -48,7 +48,6 @@
 
 .week4-page #buttons {
 	display: flex;
-	flex-wrap: wrap;
 	gap: 10px;
 	margin: 24px 0;
 }
@@ -110,6 +109,64 @@
 
 [hidden] {
 	display: none !important;
+}
+
+.statistics-page {
+	margin: 0;
+	padding: 20px;
+	color: #17223b;
+	background: #f7f8fc;
+	font: 16px/1.7 system-ui, sans-serif;
+}
+
+.statistics-page h1 {
+	font-size: 1.5rem;
+}
+
+.statistics-page .tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 20px 0;
+}
+
+.statistics-page button {
+	padding: 10px 16px;
+	border: 1px solid #7455e9;
+	border-radius: 10px;
+	background: white;
+	color: #30205c;
+	font: inherit;
+	cursor: pointer;
+}
+
+.statistics-page button[aria-pressed="true"] {
+	background: #6544d7;
+	color: white;
+}
+
+.statistics-page button:focus-visible {
+	outline: 3px solid #c56200;
+	outline-offset: 3px;
+}
+
+.statistics-page .chart-box {
+	position: relative;
+	height: 300px;
+}
+
+@media (max-width: 480px) {
+	.statistics-page {
+		padding: 12px;
+	}
+
+	.statistics-page .tabs button {
+		flex: 1;
+	}
+
+	.statistics-page .chart-box {
+		height: 260px;
+	}
 }
 
 
