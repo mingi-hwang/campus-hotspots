@@ -155,7 +155,7 @@
 	height: 300px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 	.statistics-page {
 		padding: 12px;
 	}
@@ -165,7 +165,7 @@
 	}
 
 	.statistics-page .chart-box {
-		height: 260px;
+		height: 320px;
 	}
 }
 

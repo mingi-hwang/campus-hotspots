@@ -94,6 +94,8 @@ function drawStationChart(rows, fields) {
 			scales: { y: { beginAtZero: true } }
 		}
 	});
+	document.querySelector("#stations-analysis").innerHTML =
+		"<strong>해석:</strong> 서울역이 33.5%로 가장 높으며 청량리역이 21.7%로 상위 10개의 역 중 가장 낮습니다.";
 }
 
 function drawHighwayChart(rows) {

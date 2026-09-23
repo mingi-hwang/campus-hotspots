@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>공공데이터 교통량·지하철 혼잡도 분석</title>
+  <title>Campus Hotspots - Statistics</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.2/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 </head>
 <body class="statistics-page">
-  <h1>공공데이터 교통량·지하철 혼잡도 분석</h1>
-  <p>한국도로공사와 서울교통공사 공개 CSV를 이용해 요일별 교통량과 1호선 혼잡도를 비교합니다.</p>
+  <h1>1호선 지하철 혼잡도 및 추석 요일별 교통량 분석</h1>
+  <p>서울교통공사 지하철 혼잡도 정보로 1호선의 평일 혼잡도를 분석해보고</p>
+  <p>한국도로공사 추석연휴 특별교통소통대책 결과로 요일별 고속도로 통행량을 비교합니다.</p>
   <div class="tabs" role="group" aria-label="그래프 선택">
-    <button type="button" data-panel="time" aria-controls="time" aria-pressed="true">요일별 고속도로 통행량</button>
-    <button type="button" data-panel="stations" aria-controls="stations" aria-pressed="false">역별 평균 혼잡도</button>
+    <button type="button" data-panel="time" aria-controls="time" aria-pressed="true">추석 요일별 고속도로 통행량</button>
+    <button type="button" data-panel="stations" aria-controls="stations" aria-pressed="false">평일 1호선 상위 10개 역 혼잡도</button>
   </div>
   <section id="time" class="panel" aria-labelledby="time-title">
-    <h2 id="time-title">월요일부터 일요일까지 고속도로 통행량</h2>
+    <h2 id="time-title">추석 요일별 고속도로 통행량</h2>
     <div class="chart-box"><canvas id="time-chart" role="img" aria-label="월요일부터 일요일까지 고속도로 전체 통행량"></canvas></div>
     <p><strong>의미:</strong> 한국도로공사 자료의 전체 통행량을 요일별로 비교합니다.</p>
     <p id="time-analysis"><strong>해석:</strong> 같은 요일이 여러 번 있는 경우 CSV에서 위에 있는 행만 사용하고, 아래의 중복 행은 제외했습니다.</p>
@@ -25,11 +26,11 @@
     <h2 id="stations-title">평일 1호선 역별 평균 혼잡도 상위 10곳</h2>
     <div class="chart-box"><canvas id="stations-chart" role="img" aria-label="평일 1호선 역별 평균 혼잡도 상위 10곳"></canvas></div>
     <p><strong>의미:</strong> 평일 1호선 상·하선의 모든 시간대 혼잡도를 평균 내어 역별로 비교합니다.</p>
-    <p><strong>해석:</strong> 역별 평균은 시간대와 방향의 차이를 하나의 값으로 요약한 수치입니다. 출퇴근 특정 시간대의 혼잡을 확인하려면 첫 번째 그래프를 함께 봐야 합니다.</p>
+    <p id="stations-analysis"><strong>해석:</strong> 서울역이 33.5%로 가장 높으며 청량리역이 21.7%로 상위 10개의 역 중 가장 낮습니다.</p>
   </section>
   <p>출처:
-    <a href="https://www.data.go.kr/data/15121324/fileData.do" target="_blank" rel="noopener">서울교통공사 지하철혼잡도정보</a> ·
-    <strong>한국도로공사_추석연휴 특별교통소통대책 결과_20260818.csv</strong>
+    <strong><a href=https://www.data.go.kr/data/15071311/fileData.do>서울교통공사 지하철혼잡도정보</a></strong> ·
+    <strong><a href=https://www.data.go.kr/data/15142514/fileData.do>한국도로공사 추석연휴 특별교통소통대책 결과</a></strong>
   </p>
   <p id="status" role="status"></p>
   <script src="statistics.js" defer></script>
