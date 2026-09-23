@@ -1,0 +1,152 @@
+* {
+	box-sizing: border-box;
+}
+
+.week4-page {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 32px clamp(20px, 4vw, 64px);
+	color: #17223b;
+	background: #f7f8fc;
+	font: 17px/1.65 system-ui, sans-serif;
+}
+
+.week4-page h1 {
+	margin: 0;
+	font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.week4-page h2 {
+	margin-top: 1.6rem;
+	line-height: 1.3;
+}
+
+.week4-page button,
+.week4-page a {
+	font: inherit;
+}
+
+.week4-page button {
+	padding: 10px 18px;
+	border: 1px solid #7455e9;
+	border-radius: 10px;
+	color: #30205c;
+	background: white;
+	cursor: pointer;
+}
+
+.week4-page button:hover,
+.week4-page button[aria-pressed="true"] {
+	background: #ece6ff;
+}
+
+.week4-page button:focus-visible,
+.week4-page a:focus-visible {
+	outline: 3px solid #c56200;
+	outline-offset: 3px;
+}
+
+.week4-page #buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 24px 0;
+}
+
+.week4-page #buttons button {
+	flex: 1 1 0;
+}
+
+.week4-page .content-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+	gap: clamp(24px, 4vw, 56px);
+	align-items: start;
+}
+
+.week4-page .place-content,
+.week4-page .map-panel {
+	min-width: 0;
+	padding: clamp(20px, 3vw, 36px);
+	border: 1px solid #d8dceb;
+	border-radius: 16px;
+	background: white;
+}
+
+.week4-page .place-content img {
+	display: block;
+	width: min(100%, 400px);
+	height: auto;
+	margin: 20px auto;
+	object-fit: contain;
+}
+
+.week4-page .map-panel {
+	position: sticky;
+	top: 24px;
+}
+
+.week4-page iframe {
+	display: block;
+	width: 100%;
+	min-height: 320px;
+	border: 0;
+}
+
+.week4-page .map-panel a {
+	display: inline-block;
+	margin-top: 14px;
+	color: #30205c;
+	font-weight: 700;
+}
+
+.week4-page a:hover {
+	text-decoration: underline;
+}
+
+.week4-page > p {
+	margin-top: 24px;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+
+@media (max-width: 800px) {
+	.week4-page {
+		padding: 20px 14px;
+	}
+
+	.week4-page .content-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.week4-page .map-panel {
+		position: static;
+	}
+}
+
+@media (max-width: 600px) {
+	.week4-page {
+		font-size: 16px;
+	}
+
+	.week4-page #buttons {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.week4-page button {
+		width: 100%;
+	}
+
+	.week4-page .place-content,
+	.week4-page .map-panel {
+		padding: 18px;
+	}
+
+	.week4-page iframe {
+		min-height: 260px;
+	}
+}
