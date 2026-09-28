@@ -3,31 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>친구와 얼마나 통할까? · 취향 밸런스 게임</title>
+<title>나의 학점은? - 학점 예측 시스템</title>
 <style>
 /* 바꿔 보기 1: 색상, 제목, 카드 모양 */
-:root { color-scheme: light; --accent: #6246c5; }
+:root { color-scheme: light; --accent: #3f8068; }
 * { box-sizing: border-box; }
-body { margin: 0; padding: 24px; background: #f3f0fb; color: #252039; font-family: system-ui, sans-serif; line-height: 1.65; }
+body { margin: 0; padding: 24px; background: #eef5f0; color: #20352b; font-family: system-ui, sans-serif; line-height: 1.65; }
 main { max-width: 760px; margin: auto; }
-section, header { padding: 24px; margin-bottom: 18px; background: white; border: 1px solid #e2dcef; border-radius: 22px; }
+section, header { padding: 24px; margin-bottom: 18px; background: #fbfdfb; border: 1px solid #d6e6db; border-radius: 22px; }
 h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); line-height: 1.25; }
 h2 { font-size: 1.3rem; }
-.eyebrow { color: #6246c5; font-weight: 750; letter-spacing: .06em; }
+.eyebrow { color: #347057; font-weight: 750; letter-spacing: .06em; }
 button, input, select { font: inherit; border-radius: 10px; padding: 10px 14px; max-width: 100%; }
-button { border: 1px solid #d1c7e7; background: #f5f1ff; color: #352462; cursor: pointer; }
+button { border: 1px solid #bcd5c5; background: #f1f8f3; color: #285541; cursor: pointer; }
 button.primary { background: var(--accent); color: white; }
+button.danger { border-color: #e7b8b5; color: #b42318; }
 button:disabled { opacity: .5; cursor: default; }
 button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #b76a00; outline-offset: 3px; }
-input, select { border: 1px solid #aaa0bd; background: white; color: #252039; }
+input, select { border: 1px solid #a9c5b1; background: white; color: #20352b; }
 .actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
 .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
 .choices button { min-height: 88px; }
-.choices button[aria-pressed="true"] { background: #6246c5; color: white; border: 3px solid #352462; }
+.choices button[aria-pressed="true"] { background: #3f8068; color: white; border: 3px solid #285541; }
 progress { width: 100%; accent-color: var(--accent); }
 .notice { padding: 12px; border-radius: 10px; background: #fff3d6; }
-.muted { color: #625b70; font-size: .92rem; }
-.record { padding: 16px 0; border-bottom: 1px solid #ded8e8; overflow-wrap: anywhere; }
+.muted { color: #5d7064; font-size: .92rem; }
+.record { padding: 16px 0; border-bottom: 1px solid #d5e2d9; overflow-wrap: anywhere; }
 .record p { margin: 5px 0; }
 [hidden] { display: none !important; }
 @media (max-width: 480px) { body { padding: 12px; } section, header { padding: 18px; } .choices { grid-template-columns: 1fr; } }
@@ -82,8 +83,8 @@ progress { width: 100%; accent-color: var(--accent); }
   <h2>내 데이터 관리</h2>
   <div class="actions">
     <button id="inspect">내 저장 데이터 보기</button>
-    <button id="delete-draft">진행 중인 답변 삭제</button>
-    <button id="delete-all">게임 데이터 전체 삭제</button>
+    <button id="delete-draft" class="danger">진행 중인 답변 삭제</button>
+    <button id="delete-all" class="danger">게임 데이터 전체 삭제</button>
   </div>
   <div id="data-view" hidden>
     <h3>진행 중인 답변 · sessionStorage</h3><div id="draft-data"></div>
@@ -167,7 +168,7 @@ function resultType(answers) {
   for (const question of QUESTIONS) score += answers[question.id];
   if (score === 0) return "gradeF";
   if (score <= 1) return "gradeD";
-  if (score <= QUESTIONS.length * 2 / 3 - 1) return "gradeC";
+  if (score <= QUESTIONS.length / 2) return "gradeC";
   if (score < QUESTIONS.length) return "gradeB";
   if (score === QUESTIONS.length) return "gradeA";
   return "calm";
@@ -225,6 +226,7 @@ function makeText(tag, text) {
 function action(label, callback) {
   const button = makeText("button", label);
   button.type = "button";
+  if (label.includes("삭제")) button.className = "danger";
   button.addEventListener("click", callback);
   return button;
 }
