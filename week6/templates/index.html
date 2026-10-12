@@ -16,7 +16,7 @@
 <label for="image">사진 선택 · JPEG/PNG, 5 MiB 이하, 800만 픽셀 이하</label>
 <input id="image" name="image" type="file" accept="image/jpeg,image/png" required>
 <label for="operation">처리 방법</label>
-<select id="operation" name="operation"><option value="grayscale">Grayscale · 흑백</option><option value="blur">Gaussian Blur · 흐리게</option><option value="edge">Edge Detection · 윤곽선</option></select>
+<select id="operation" name="operation"><option value="grayscale">Grayscale · 흑백</option><option value="blur">Gaussian Blur · 흐리게</option><option value="edge">Edge Detection · 윤곽선</option><option value="invert">Invert · 색상 반전</option></select>
 <label for="kernel">Blur 커널 · 홀수 3~51 (Blur에서만 사용)</label>
 <input id="kernel" name="kernel" type="number" min="3" max="51" step="2" value="15" required>
 <div class="submit-options">

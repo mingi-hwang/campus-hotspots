@@ -46,7 +46,7 @@ def process_image():
     operation = request.form.get("operation", "grayscale")
     if upload is None or upload.filename == "":
         return {"error": "이미지 파일을 선택하세요."}, 400
-    if operation not in {"grayscale", "blur", "edge"}:
+    if operation not in {"grayscale", "blur", "edge", "invert"}:
         return {"error": "지원하지 않는 처리 방법입니다."}, 400
     try:
         kernel = int(request.form.get("kernel", "15"))
@@ -86,9 +86,11 @@ def process_image():
         result = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     elif operation == "blur":
         result = cv2.GaussianBlur(image, (kernel, kernel), 0)
-    else:
+    elif operation == "edge":
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         result = cv2.Canny(gray, 100, 200)
+    else:
+        result = cv2.bitwise_not(image)
     compute_ms = (perf_counter() - compute_started) * 1000
     ok, encoded = cv2.imencode(".png", result)
     if not ok:
