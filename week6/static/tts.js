@@ -1,12 +1,80 @@
 let audioURL = null;
 let decodedAudio = null;
+const savedSentencesKey = "week6-saved-sentences";
 const form = document.querySelector("#tts-form");
 const controls = document.querySelector("#tts-controls");
 const status = document.querySelector("#tts-status");
+const textInput = document.querySelector("#text");
+const saveButton = document.querySelector("#save-text");
+const savedSentences = document.querySelector("#saved-sentences");
 const result = document.querySelector("#tts-result");
 const canvas = document.querySelector("#waveform");
 const audio = document.querySelector("#audio");
 const download = document.querySelector("#wav-download");
+
+function getSavedSentences() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(savedSentencesKey) || "[]");
+    return Array.isArray(saved) ? saved.filter((sentence) => typeof sentence === "string") : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function renderSavedSentences() {
+  savedSentences.replaceChildren();
+  const sentences = getSavedSentences();
+  if (sentences.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "muted saved-empty";
+    empty.textContent = "저장한 문장이 없습니다. 최대 3개까지 저장할 수 있습니다.";
+    savedSentences.append(empty);
+    return;
+  }
+  sentences.forEach((sentence, index) => {
+    const item = document.createElement("div");
+    item.className = "saved-sentence";
+    const selectButton = document.createElement("button");
+    selectButton.type = "button";
+    selectButton.className = "saved-select";
+    selectButton.textContent = sentence;
+    selectButton.title = "이 문장을 입력창에 넣기";
+    selectButton.addEventListener("click", () => {
+      textInput.value = sentence;
+      textInput.focus();
+      status.textContent = "저장한 문장을 입력창에 넣었습니다.";
+    });
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "saved-delete";
+    deleteButton.textContent = "삭제";
+    deleteButton.addEventListener("click", () => {
+      const next = getSavedSentences();
+      next.splice(index, 1);
+      localStorage.setItem(savedSentencesKey, JSON.stringify(next));
+      renderSavedSentences();
+      status.textContent = "저장한 문장을 삭제했습니다.";
+    });
+    item.append(selectButton, deleteButton);
+    savedSentences.append(item);
+  });
+}
+
+saveButton.addEventListener("click", () => {
+  const sentence = textInput.value.trim();
+  if (!sentence) {
+    status.textContent = "저장할 문장을 입력하세요.";
+    textInput.focus();
+    return;
+  }
+  const sentences = getSavedSentences().filter((saved) => saved !== sentence);
+  sentences.unshift(sentence);
+  localStorage.setItem(savedSentencesKey, JSON.stringify(sentences.slice(0, 3)));
+  renderSavedSentences();
+  status.textContent = "문장을 저장했습니다. 저장 목록에서 다시 선택할 수 있습니다.";
+});
+
+renderSavedSentences();
 
 function drawWaveform(buffer) {
   const pixelRatio = window.devicePixelRatio || 1;
@@ -51,7 +119,7 @@ window.addEventListener("resize", () => {
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
   const data = {
-    text: document.querySelector("#text").value,
+    text: textInput.value,
     length_scale: Number(document.querySelector("#length-scale").value)
   };
   audio.pause();
