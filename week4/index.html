@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Hotspots week4</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="week4-page">
+<h1>나만의 캠퍼스 핫스팟</h1>
+<p>장소를 선택하면 설명과 위치 표시가 함께 바뀝니다.</p>
+<nav id="buttons" aria-label="장소 선택"></nav>
+<main class="content-layout">
+<div class="place-content">
+<section id="cafe" class="place">
+<h2>카페</h2><p>시원한 커피를 마실 수 있는 매머드커피</p>
+<p>달달한 커피를 마시며 시간을 보내는 공간</p>
+<img src="images/cafe.jpeg" alt="햇빛이 들어오는 중앙도서관 창가 좌석" width="400" height="400">
+<h2>이 장소가 의미 있는 이유</h2>
+<ul>
+<li>정문에서 바로 갈 수 있기에 거리가 가까움</li>
+<li>테이크아웃을 하면 리유저블 컵으로 주기에 다 마시고 반납하면 됨</li>
+</ul>
+
+<h2>여기에서 해볼 것</h2>
+<ul>
+<li>시원한 커피를 리유저블컵으로 마셔보기</li>
+<li>자리가 있다면 안에서도 마셔보기</li>
+</ul>
+</section>
+<section id="foodcourt" class="place" hidden>
+<h2>식당</h2><p>맛있는 음식을 먹을 수 있는 식당</p>
+<img src="images/food.jpeg" alt="1층 식당에서 맛볼 수 있는 음식" width="400" height="400">
+<p>다양한 메뉴가 있어서 내가 먹고 싶은 음식을 정할 수 있는 자유</p>
+<h2>이 장소가 의미 있는 이유</h2>
+<ul>
+<li>매일 달라지는 메뉴로 지루함이 없이 먹을 수 있음</li>
+<li>그리고 1층과 2층에 따로 운영해서 원하지 않는 메뉴가 있으면 다른 것을 고를 수도 있음</li>
+</ul>
+
+<h2>여기에서 해볼 것</h2>
+<ul>
+<li>1층에서는 음료나 디저트도 나오기에 먹어보기</li>
+<li>2층에서 먹을 경우 부족하다면 플러스메뉴도 시켜서 먹어보기</li>
+</ul>
+</section>
+<section id="shelter" class="place" hidden>
+<h2>편의점</h2><p>없는 게 없는 편의점</p>
+<p>필요한 것이 있거나 간단하게 먹을 것을 살 수 있는 공간</p>
+<img src="images/market.jpeg" alt="편의점" width="400" height="400">
+<h2>이 장소가 의미 있는 이유</h2>
+<p>학교 안에서 가장 빠르게 갈 수 있는 편의점이면서 바로 옆이 식당이라서 앉을 공간이 많음</p>
+
+<h2>여기에서 해볼 것</h2>
+<ul>
+<li>먹고 싶은 간식 사먹어보기</li>
+<li>도시락, 빵, 김밥 등으로 간단하게 끼니 해결하기</li>
+</ul>
+</section>
+ </div>
+ <aside class="map-panel" aria-label="선택한 장소 지도">
+<iframe id="map" title="선택 장소 google 지도" width="600" height="320" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p><a id="map-link" target="_blank" rel="noopener">지도 새 창에서 열기</a></p>
+</aside>
+</main>
+<p>출처</p>
+<p>사진:<a href="https://naver.me/xF2N6zIf">네이버 매머드 공식 사진</a></p>
+<p>사진:<a href="https://www.catholic.ac.kr/ko/campuslife/restaurant.do">가톨릭대학교 공식 웹사이트</a></p>
+<script src="app.js" defer></script>
+</body>
+</html>
