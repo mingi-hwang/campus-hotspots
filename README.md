@@ -121,3 +121,18 @@ py -m flask --app tts_app run --host 127.0.0.1 --port 5000 / http://127.0.0.1:50
 - 도움받은 작업과 대표 질문: 색상반전을 추가해달라, 영어문장을 최대 3개 저장하는 기능을 추가해달라
 - 직접 수정한 부분: 
 - 실행하여 확인한 내용: Flask 서버가 정상적으로 실행되는지 확인했다. 이미지 처리에서는 색상 반전 결과가 PNG로 반환되는 것을 확인했고, TTS에서는 영어 문장이 WAV 파일과 파형으로 변환되는 것을 확인했다. 또한 문장 저장 기능이 최대 3개까지만 저장되고 저장된 문장을 클릭하면 입력창에 표시되는 것을 확인했다.
+
+## 7주차 · 로그인과 DB 게시판
+
+주제: 주말에 하고 싶은 것들
+수정한 부분: 주제를 바꾸고 관리화면을 좀 더 관리자가 사용하는 느낌으로 빨간색을 사용함
+로컬 실행 명령:cd week7
+pip install -r requirements.txt
+python -m flask --app app init-db
+python -m flask --app app ensure-admin
+python -m flask --app app run --debug
+두 계정의 확인 결과: 일반 계정과 관리자 계정이 잘 작동되었음
+관리 기능 시험 결과: 삭제 및 차단은 잘 작동되었음
+실행 화면: <img width="1021" height="962" alt="스크린샷 2026-11-23 164305" src="https://github.com/user-attachments/assets/f031f2f7-0bd2-4fa2-8d28-06de95b81786" /><img width="1009" height="962" alt="스크린샷 2026-11-23 164426" src="https://github.com/user-attachments/assets/fd0b9166-8d45-46cd-b33b-6516690e00e9" />
+<img width="1003" height="963" alt="스크린샷 2026-11-23 164405" src="https://github.com/user-attachments/assets/15dd16b0-5141-4dcc-b8ee-3c7d24ecef07" />
+
